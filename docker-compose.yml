@@ -1,0 +1,16 @@
+version: '3'
+services:
+    esp8266_env:
+        stdin_open: true
+        tty: true
+        build:
+            dockerfile: Dockerfile
+            context: .
+        image: caiocrux/esp8266_rtos
+        container_name: esp8266_env
+        #environment:
+        #        - DISPLAY=$DISPLAY
+        volumes:
+                - .:/home/esp8266/firmware
+        devices:
+                - /dev/ttyUSB0:/dev/ttyUSB0
